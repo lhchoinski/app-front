@@ -3,25 +3,21 @@ import CssBaseline from '@mui/material/CssBaseline';
 import Stack from '@mui/material/Stack';
 import SignInCard from './SignInCard';
 import Content from './Content';
-import AppTheme from "@/pages/Authentication/AppTheme";
-import ColorModeSelect from "@/pages/Authentication/ColorModeSelect";
+import AppTheme from '@/pages/Authentication/AppTheme';
+import ColorModeSelect from '@/pages/Authentication/ColorModeSelect';
 
-export default function SignInSide(props: { disableCustomTheme?: boolean }) {
+const Login = () => {
     return (
-        <AppTheme {...props}>
+        <AppTheme>
             <CssBaseline enableColorScheme />
-            <ColorModeSelect sx={{ position: 'fixed', top: '1rem', right: '1rem' }} />
+            <ColorModeSelect
+                sx={{ position: 'fixed', top: '1rem', right: '1rem' }}
+            />
             <Stack
                 direction="column"
                 component="main"
                 sx={[
-                    {
-                        justifyContent: 'center',
-                        height: 'calc((1 - var(--template-frame-height, 0)) * 100%)',
-                        marginTop: 'max(40px - var(--template-frame-height, 0px), 0px)',
-                        minHeight: '100%',
-                    },
-                    (theme) => ({
+                    theme => ({
                         '&::before': {
                             content: '""',
                             display: 'block',
@@ -44,7 +40,7 @@ export default function SignInSide(props: { disableCustomTheme?: boolean }) {
                     sx={{
                         justifyContent: 'center',
                         gap: { xs: 6, sm: 12 },
-                        p: 2,
+                        p: 14,
                         mx: 'auto',
                     }}
                 >
@@ -64,4 +60,6 @@ export default function SignInSide(props: { disableCustomTheme?: boolean }) {
             </Stack>
         </AppTheme>
     );
-}
+};
+
+export default Login;

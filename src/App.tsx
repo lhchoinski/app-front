@@ -4,6 +4,8 @@ import { MantineProvider } from '@mantine/core';
 import CoreLoader from '@/components/Loader';
 import { LoaderProvider } from '@/providers/LoaderProvider';
 import { useAppSelector } from '@/store/hooks';
+import CssBaseline from '@mui/material/CssBaseline';
+import AppTheme from '@/pages/Authentication/AppTheme';
 
 function App({ children }: PropsWithChildren) {
     const themeConfig = useAppSelector(
@@ -14,6 +16,8 @@ function App({ children }: PropsWithChildren) {
         <MantineProvider forceColorScheme={theme == 'dark' ? 'dark' : 'light'}>
             <LoaderProvider>
                 <CoreLoader id={'globalLoader'}>
+                    <AppTheme >
+                        <CssBaseline enableColorScheme />
                     <div
                         className={`${(store.getState().themeConfig.sidebar && 'toggle-sidebar') || ''} ${themeConfig.menu} ${themeConfig.layout} ${
                             themeConfig.rtlClass
@@ -21,7 +25,9 @@ function App({ children }: PropsWithChildren) {
                     >
                         {children}
                     </div>
+                        </AppTheme>
                 </CoreLoader>
+
             </LoaderProvider>
         </MantineProvider>
     );

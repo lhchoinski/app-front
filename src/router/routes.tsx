@@ -18,201 +18,158 @@ const ERROR404 = lazy(() => import('../pages/ErrorPages/Error404'));
 const ERROR500 = lazy(() => import('../pages/ErrorPages/Error500'));
 const ERROR503 = lazy(() => import('../pages/ErrorPages/Error503'));
 
-const LoginBoxed = lazy(() => import('../pages/Authentication/Login'));
+const Login = lazy(() => import('../pages/Authentication/Login'));
 
 const routes = [
     // Home
     {
         path: '/',
-        element: (
-            <Home />
-        ),
-        layout: 'default'
+        element: <Home />,
+        layout: 'default',
     },
 
     // Gerar recibos
 
     {
         path: '/recibos',
-        element: (
-            <Recibos />
-        ),
-        layout: 'default'
+        element: <Recibos />,
+        layout: 'default',
     },
     {
         path: '/recibos/cadastrar',
-        element: (
-            <Recibo />
-        ),
-        layout: 'default'
+        element: <Recibo />,
+        layout: 'default',
     },
     {
         path: '/recibos/editar/:id',
-        element: (
-            <Recibo />
-        ),
-        layout: 'default'
+        element: <Recibo />,
+        layout: 'default',
     },
     {
         path: '/recibos/visualizar/:id',
-        element: (
-            < RecibosView/>
-        ),
-        layout: 'default'
+        element: <RecibosView />,
+        layout: 'default',
     },
 
     // Gestão de pessoas
     {
         path: '/gestao-de-pessoas/pessoas',
-        element: (
-            <Pessoas />
-        ),
-        layout: 'default'
+        element: <Pessoas />,
+        layout: 'default',
     },
     {
         path: '/pessoas/cadastrar',
-        element: (
-            <PessoaCadastrar />
-        ),
-        layout: 'default'
+        element: <PessoaCadastrar />,
+        layout: 'default',
     },
     {
         path: '/pessoas/editar/:id',
-        element: (
-            <PessoaCadastrar />
-        ),
-        layout: 'default'
+        element: <PessoaCadastrar />,
+        layout: 'default',
     },
     {
         path: '/pessoas/visualizar/:id',
-        element: (
-            <PessoaCadastrar />
-        ),
-        layout: 'default'
+        element: <PessoaCadastrar />,
+        layout: 'default',
     },
 
     // Relatorios
     {
         path: '/relatorios/relatorio-mensal/periodo',
-        element: (
-            <RelatorioPeriodo />
-        ),
-        layout: 'default'
+        element: <RelatorioPeriodo />,
+        layout: 'default',
     },
 
     // Fontes
     {
         path: '/fontes',
-        element: (
-            <Fontes />
-        ),
-        layout: 'default'
+        element: <Fontes />,
+        layout: 'default',
     },
     {
         path: '/fontes/cadastrar',
-        element: (
-            <FonteCadastrar />
-        ),
-        layout: 'default'
+        element: <FonteCadastrar />,
+        layout: 'default',
     },
     {
         path: '/fontes/editar/:id',
-        element: (
-            <FonteCadastrar />
-        ),
-        layout: 'default'
+        element: <FonteCadastrar />,
+        layout: 'default',
     },
     {
         path: '/fontes/visualizar/:id',
-        element: (
-            <FonteCadastrar />
-        ),
-        layout: 'default'
+        element: <FonteCadastrar />,
+        layout: 'default',
     },
 
     //Impostos
 
     {
         path: '/impostos',
-        element: (
-            <Impostos />
-        ),
-        layout: 'default'
+        element: <Impostos />,
+        layout: 'default',
     },
     {
         path: '/impostos/cadastrar',
-        element: (
-            <ImpostoCadastrar />
-        ),
-        layout: 'default'
+        element: <ImpostoCadastrar />,
+        layout: 'default',
     },
     {
         path: '/impostos/editar/:id',
-        element: (
-            <ImpostoCadastrar />
-        ),
-        layout: 'default'
+        element: <ImpostoCadastrar />,
+        layout: 'default',
     },
     {
         path: '/impostos/visualizar/:id',
-        element: (
-            <ImpostoCadastrar />
-        ),
-        layout: 'default'
+        element: <ImpostoCadastrar />,
+        layout: 'default',
     },
 
     // Administrador
     {
         path: '/administrador/usuarios',
         element: <Usuarios />,
-        layout: 'default'
+        layout: 'default',
     },
     {
         path: '/administrador/usuario/cadastrar',
-        element: (
-            <UsuarioCadastrar />
-        ),
-        layout: 'default'
+        element: <UsuarioCadastrar />,
+        layout: 'default',
     },
     {
         path: '/administrador/usuario/editar/:id',
-        element: (
-            <UsuarioCadastrar />
-        ),
-        layout: 'default'
+        element: <UsuarioCadastrar />,
+        layout: 'default',
     },
     {
         path: '/administrador/usuario/visualizar/:id',
-        element: (
-            <UsuarioCadastrar />
-        ),
-        layout: 'default'
+        element: <UsuarioCadastrar />,
+        layout: 'default',
     },
 
     //error pages
     {
         path: '/pages/error500',
         element: <ERROR500 />,
-        layout: 'blank'
+        layout: 'blank',
     },
     {
         path: '/pages/error503',
         element: <ERROR503 />,
-        layout: 'blank'
+        layout: 'blank',
     },
     {
         path: '*',
         element: <ERROR404 />,
-        layout: 'blank'
+        layout: 'blank',
     },
 
     //Authentication
     {
         path: '/auth/login',
-        element: <LoginBoxed />,
-        layout: 'blank'
-    }
-
+        element: <Login />,
+        layout: 'blank',
+    },
 ];
 
 export { routes };

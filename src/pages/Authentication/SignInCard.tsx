@@ -12,7 +12,8 @@ import TextField from '@mui/material/TextField';
 import Typography from '@mui/material/Typography';
 import { styled } from '@mui/material/styles';
 import ForgotPassword from './ForgotPassword';
-import { GoogleIcon, FacebookIcon, SitemarkIcon } from './CustomIcons';
+import { FacebookIcon, GoogleIcon, SitemarkIcon } from './CustomIcons';
+import { useTranslation } from 'react-i18next';
 
 const Card = styled(MuiCard)(({ theme }) => ({
     display: 'flex',
@@ -39,6 +40,8 @@ export default function SignInCard() {
     const [passwordErrorMessage, setPasswordErrorMessage] = React.useState('');
     const [open, setOpen] = React.useState(false);
 
+    const { t } = useTranslation();
+
     const handleClickOpen = () => {
         setOpen(true);
     };
@@ -61,13 +64,15 @@ export default function SignInCard() {
 
     const validateInputs = () => {
         const email = document.getElementById('email') as HTMLInputElement;
-        const password = document.getElementById('password') as HTMLInputElement;
+        const password = document.getElementById(
+            'password',
+        ) as HTMLInputElement;
 
         let isValid = true;
 
         if (!email.value || !/\S+@\S+\.\S+/.test(email.value)) {
             setEmailError(true);
-            setEmailErrorMessage('Please enter a valid email address.');
+            setEmailErrorMessage(t('Please enter a valid email address.'));
             isValid = false;
         } else {
             setEmailError(false);
@@ -76,7 +81,9 @@ export default function SignInCard() {
 
         if (!password.value || password.value.length < 6) {
             setPasswordError(true);
-            setPasswordErrorMessage('Password must be at least 6 characters long.');
+            setPasswordErrorMessage(
+                'Password must be at least 6 characters long.',
+            );
             isValid = false;
         } else {
             setPasswordError(false);
@@ -102,7 +109,12 @@ export default function SignInCard() {
                 component="form"
                 onSubmit={handleSubmit}
                 noValidate
-                sx={{ display: 'flex', flexDirection: 'column', width: '100%', gap: 2 }}
+                sx={{
+                    display: 'flex',
+                    flexDirection: 'column',
+                    width: '100%',
+                    gap: 2,
+                }}
             >
                 <FormControl>
                     <FormLabel htmlFor="email">Email</FormLabel>
@@ -122,7 +134,12 @@ export default function SignInCard() {
                     />
                 </FormControl>
                 <FormControl>
-                    <Box sx={{ display: 'flex', justifyContent: 'space-between' }}>
+                    <Box
+                        sx={{
+                            display: 'flex',
+                            justifyContent: 'space-between',
+                        }}
+                    >
                         <FormLabel htmlFor="password">Password</FormLabel>
                         <Link
                             component="button"
@@ -154,20 +171,25 @@ export default function SignInCard() {
                     label="Remember me"
                 />
                 <ForgotPassword open={open} handleClose={handleClose} />
-                <Button type="submit" fullWidth variant="contained" onClick={validateInputs}>
+                <Button
+                    type="submit"
+                    fullWidth
+                    variant="contained"
+                    onClick={validateInputs}
+                >
                     Sign in
                 </Button>
                 <Typography sx={{ textAlign: 'center' }}>
                     Don&apos;t have an account?{' '}
                     <span>
-            <Link
-                href="/material-ui/getting-started/templates/sign-in/"
-                variant="body2"
-                sx={{ alignSelf: 'center' }}
-            >
-              Sign up
-            </Link>
-          </span>
+                        <Link
+                            href="/material-ui/getting-started/templates/sign-in/"
+                            variant="body2"
+                            sx={{ alignSelf: 'center' }}
+                        >
+                            Sign up
+                        </Link>
+                    </span>
                 </Typography>
             </Box>
             <Divider>or</Divider>

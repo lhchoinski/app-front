@@ -7,6 +7,11 @@ import 'react-perfect-scrollbar/dist/css/styles.css';
 // Tailwind css
 import './tailwind.css';
 
+import '@fontsource/roboto/300.css';
+import '@fontsource/roboto/400.css';
+import '@fontsource/roboto/500.css';
+import '@fontsource/roboto/700.css';
+
 // Mantine datatable
 import '@mantine/core/styles.layer.css';
 import 'mantine-datatable/styles.layer.css';
